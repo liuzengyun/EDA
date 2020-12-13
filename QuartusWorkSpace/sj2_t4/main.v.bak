@@ -1,0 +1,57 @@
+module main(in8,out1,out2,out3);
+    input [7:0] in8;                        // 8路输入，高电平1为有效电平
+    output reg[6:0] out1;                   // 7路输出，对应第一个七段管十进制数的显示（个位）
+    output reg[6:0] out2;                   // 7路输出，对应第二个七段管十进制数的显示（十位）
+    output reg[6:0] out3;                   // 7路输出，对应第三个七段管十进制数的显示（百位）
+    
+    // wire[7:0] dec;                       // 内部变量，记录8路输入对应的十进制数值（0-255）
+    wire[3:0] ones;                         // 内部变量，记录十进制数~个位
+    wire[3:0] tens;                         // 内部变量，记录十进制数~十位
+    wire[3:0] hundreds;                     // 内部变量，记录十进制数~百位
+    
+    // 二进制转十进制
+    // assign dec=in8[0]+in8[1]*2+in8[2]*4+in8[3]*8+in8[4]*16+in8[5]*32+in8[6]*64+in8[7]*128;
+    assign ones=in8%10;                     // 个位赋值
+    assign tens=(in8/10)%10;                // 十位赋值
+    assign hundreds=in8/100;                // 百位赋值
+    
+    always@(in8)
+        begin
+            if(in8<10)                      // in8>=0 and in8<10
+                begin
+                    dec_out(ones,out1);     // 第一个七段管 显示个位
+                    out2=7'b1111111;        // 第二个七段管（十位）不显示
+                    out3=7'b1111111;        // 第三个七段管（百位）不显示
+                end
+            else if(in8<100)                // in8>=10 and in8<100
+                begin
+                    dec_out(ones,out1);     // 第一个七段管 显示个位
+                    dec_out(tens,out2);     // 第二个七段管 显示十位
+                    out3=7'b1111111;        // 第三个七段管（百位）不显示
+                end
+            else                            // in8>=100
+                begin
+                    dec_out(ones,out1);     // 第一个七段管 显示个位
+                    dec_out(tens,out2);     // 第二个七段管 显示十位
+                    dec_out(hundreds,out3); // 第三个七段管 显示百位
+                end
+        end
+    
+    // 七段管十进制数显示：将十进制数转换为七段管显示所对应的电平信号
+    task dec_out;
+        input integer decc;                 // 输入，十进制数
+        output reg[6:0] outt;               // 输出，7位二进制数值
+        if(decc==0)      outt=7'b1000000;   // 七段管显示0
+        else if(decc==1) outt=7'b1111001;   // 七段管显示1
+        else if(decc==2) outt=7'b0100100;   // 七段管显示2
+        else if(decc==3) outt=7'b0110000;   // 七段管显示3
+        else if(decc==4) outt=7'b0011001;   // 七段管显示4
+        else if(decc==5) outt=7'b0010010;   // 七段管显示5
+        else if(decc==6) outt=7'b0000010;   // 七段管显示6
+        else if(decc==7) outt=7'b1111000;   // 七段管显示7
+        else if(decc==8) outt=7'b0000000;   // 七段管显示8
+        else if(decc==9) outt=7'b0011000;   // 七段管显示9
+        else             outt=7'b1111111;   // 七段管不显示
+    endtask
+    
+endmodule

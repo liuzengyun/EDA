@@ -1,0 +1,59 @@
+`timescale 1 ns/ 1 ns
+module main_vlg_tst();
+
+    reg clk50;
+    reg clr;
+    reg key0;
+    reg key1;
+
+    wire clk1;
+    wire [6:0]  out0;
+    wire [6:0]  out1;
+    wire [6:0]  out2;
+    wire [6:0]  out3;
+    wire [6:0]  out4;
+
+    integer i=0;
+    integer j=0;
+
+    // 产生时钟信号
+    // 一个时钟周期为20ns
+    parameter DELAY=20; 
+    // 半个周期翻转一次
+    always #(DELAY/2) clk50=~clk50;
+
+    main i1 (  
+        .clk1(clk1),
+        .clk50(clk50),
+        .clr(clr),
+        .key0(key0),
+        .key1(key1),
+        .out0(out0),
+        .out1(out1),
+        .out2(out2),
+        .out3(out3),
+        .out4(out4)
+    );
+    
+    initial                                                
+        begin                                                  
+            clk50=1;
+            clr=0;
+            key0=0;
+            key1=0;
+            // 模拟产生输入信号 
+            for(i=0;i<10;i=i+1)
+                begin
+                    #10000;
+                end
+            key1=1; #10000 
+            key1=0;
+            for(j=0;j<120;j=j+1)
+                begin
+                    #10000;
+                end
+            key0=1; #10000 
+            key0=0;             
+        end                                                                        
+
+endmodule

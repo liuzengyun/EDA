@@ -1,0 +1,54 @@
+`timescale 1 ps/ 1 ps
+module main_vlg_tst();
+
+reg eachvec;
+
+reg [7:0] ina;
+reg [7:0] inb;
+// wires                                               
+wire [6:0]  out1;
+wire [6:0]  out2;
+wire [6:0]  out3;
+wire [6:0]  out4;
+wire [6:0]  out5;
+wire [15:0]  out;
+wire [3:0]  result1;
+wire [3:0]  result2;
+wire [3:0]  result3;
+wire [3:0]  result4;
+wire [3:0]  result5;
+
+integer i,j;
+                        
+main i1 (
+
+	.ina(ina),
+	.inb(inb),
+	.out1(out1),
+	.out2(out2),
+	.out3(out3),
+	.out4(out4),
+	.out5(out5),
+	.out(out),
+	.result1(result1),
+	.result2(result2),
+	.result3(result3),
+	.result4(result4),
+	.result5(result5)
+);
+initial                                                
+begin            
+for(i=0;i<256;i=i+1)
+begin
+	inb=i;
+	for(j=0;j<256;j=j+1)
+	begin
+		ina=j;
+		#10;
+	end
+end                                               
+$display("begin");                       
+end                                                    
+ initial                                                     
+$monitor($realtime,,,"ina: %b inb: %b out1: %b out2: %b out3: %b out4: %b out5: %b out: %d result1: %d result2: %d result3: %d result4: %d result5: %d",ina,inb,out1,out2,out3,out4,out5,out,result1,result2,result3,result4,result5);                                                                                                     
+endmodule

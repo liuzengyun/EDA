@@ -1,0 +1,177 @@
+# Reading D:/modelSim/modelsim_ase/tcl/vsim/pref.tcl
+# do main_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/modelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1 {C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1/main.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:36:15 on Oct 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1" C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1/main.v 
+# -- Compiling module main
+# 
+# Top level modules:
+# 	main
+# End time: 20:36:15 on Oct 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1/simulation/modelsim {C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1/simulation/modelsim/main.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 20:36:15 on Oct 16,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1/simulation/modelsim" C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t1_m1/simulation/modelsim/main.vt 
+# -- Compiling module main_vlg_tst
+# 
+# Top level modules:
+# 	main_vlg_tst
+# End time: 20:36:15 on Oct 16,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  main_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" main_vlg_tst 
+# Start time: 20:36:15 on Oct 16,2020
+# Loading work.main_vlg_tst
+# Loading work.main
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# 0  input:0 0 0 0 0 0 0  output:0  
+# 10  input:1 0 0 0 0 0 0  output:0  
+# 20  input:0 1 0 0 0 0 0  output:0  
+# 30  input:1 1 0 0 0 0 0  output:0  
+# 40  input:0 0 1 0 0 0 0  output:0  
+# 50  input:1 0 1 0 0 0 0  output:0  
+# 60  input:0 1 1 0 0 0 0  output:0  
+# 70  input:1 1 1 0 0 0 0  output:0  
+# 80  input:0 0 0 1 0 0 0  output:0  
+# 90  input:1 0 0 1 0 0 0  output:0  
+# 100  input:0 1 0 1 0 0 0  output:0  
+# 110  input:1 1 0 1 0 0 0  output:0  
+# 120  input:0 0 1 1 0 0 0  output:0  
+# 130  input:1 0 1 1 0 0 0  output:0  
+# 140  input:0 1 1 1 0 0 0  output:0  
+# 150  input:1 1 1 1 0 0 0  output:1  
+# 160  input:0 0 0 0 1 0 0  output:0  
+# 170  input:1 0 0 0 1 0 0  output:0  
+# 180  input:0 1 0 0 1 0 0  output:0  
+# 190  input:1 1 0 0 1 0 0  output:0  
+# 200  input:0 0 1 0 1 0 0  output:0  
+# 210  input:1 0 1 0 1 0 0  output:0  
+# 220  input:0 1 1 0 1 0 0  output:0  
+# 230  input:1 1 1 0 1 0 0  output:1  
+# 240  input:0 0 0 1 1 0 0  output:0  
+# 250  input:1 0 0 1 1 0 0  output:0  
+# 260  input:0 1 0 1 1 0 0  output:0  
+# 270  input:1 1 0 1 1 0 0  output:1  
+# 280  input:0 0 1 1 1 0 0  output:0  
+# 290  input:1 0 1 1 1 0 0  output:1  
+# 300  input:0 1 1 1 1 0 0  output:1  
+# 310  input:1 1 1 1 1 0 0  output:1  
+# 320  input:0 0 0 0 0 1 0  output:0  
+# 330  input:1 0 0 0 0 1 0  output:0  
+# 340  input:0 1 0 0 0 1 0  output:0  
+# 350  input:1 1 0 0 0 1 0  output:0  
+# 360  input:0 0 1 0 0 1 0  output:0  
+# 370  input:1 0 1 0 0 1 0  output:0  
+# 380  input:0 1 1 0 0 1 0  output:0  
+# 390  input:1 1 1 0 0 1 0  output:1  
+# 400  input:0 0 0 1 0 1 0  output:0  
+# 410  input:1 0 0 1 0 1 0  output:0  
+# 420  input:0 1 0 1 0 1 0  output:0  
+# 430  input:1 1 0 1 0 1 0  output:1  
+# 440  input:0 0 1 1 0 1 0  output:0  
+# 450  input:1 0 1 1 0 1 0  output:1  
+# 460  input:0 1 1 1 0 1 0  output:1  
+# 470  input:1 1 1 1 0 1 0  output:1  
+# 480  input:0 0 0 0 1 1 0  output:0  
+# 490  input:1 0 0 0 1 1 0  output:0  
+# 500  input:0 1 0 0 1 1 0  output:0  
+# 510  input:1 1 0 0 1 1 0  output:1  
+# 520  input:0 0 1 0 1 1 0  output:0  
+# 530  input:1 0 1 0 1 1 0  output:1  
+# 540  input:0 1 1 0 1 1 0  output:1  
+# 550  input:1 1 1 0 1 1 0  output:1  
+# 560  input:0 0 0 1 1 1 0  output:0  
+# 570  input:1 0 0 1 1 1 0  output:1  
+# 580  input:0 1 0 1 1 1 0  output:1  
+# 590  input:1 1 0 1 1 1 0  output:1  
+# 600  input:0 0 1 1 1 1 0  output:1  
+# 610  input:1 0 1 1 1 1 0  output:1  
+# 620  input:0 1 1 1 1 1 0  output:1  
+# 630  input:1 1 1 1 1 1 0  output:1  
+# 640  input:0 0 0 0 0 0 1  output:0  
+# 650  input:1 0 0 0 0 0 1  output:0  
+# 660  input:0 1 0 0 0 0 1  output:0  
+# 670  input:1 1 0 0 0 0 1  output:0  
+# 680  input:0 0 1 0 0 0 1  output:0  
+# 690  input:1 0 1 0 0 0 1  output:0  
+# 700  input:0 1 1 0 0 0 1  output:0  
+# 710  input:1 1 1 0 0 0 1  output:1  
+# 720  input:0 0 0 1 0 0 1  output:0  
+# 730  input:1 0 0 1 0 0 1  output:0  
+# 740  input:0 1 0 1 0 0 1  output:0  
+# 750  input:1 1 0 1 0 0 1  output:1  
+# 760  input:0 0 1 1 0 0 1  output:0  
+# 770  input:1 0 1 1 0 0 1  output:1  
+# 780  input:0 1 1 1 0 0 1  output:1  
+# 790  input:1 1 1 1 0 0 1  output:1  
+# 800  input:0 0 0 0 1 0 1  output:0  
+# 810  input:1 0 0 0 1 0 1  output:0  
+# 820  input:0 1 0 0 1 0 1  output:0  
+# 830  input:1 1 0 0 1 0 1  output:1  
+# 840  input:0 0 1 0 1 0 1  output:0  
+# 850  input:1 0 1 0 1 0 1  output:1  
+# 860  input:0 1 1 0 1 0 1  output:1  
+# 870  input:1 1 1 0 1 0 1  output:1  
+# 880  input:0 0 0 1 1 0 1  output:0  
+# 890  input:1 0 0 1 1 0 1  output:1  
+# 900  input:0 1 0 1 1 0 1  output:1  
+# 910  input:1 1 0 1 1 0 1  output:1  
+# 920  input:0 0 1 1 1 0 1  output:1  
+# 930  input:1 0 1 1 1 0 1  output:1  
+# 940  input:0 1 1 1 1 0 1  output:1  
+# 950  input:1 1 1 1 1 0 1  output:1  
+# 960  input:0 0 0 0 0 1 1  output:0  
+# 970  input:1 0 0 0 0 1 1  output:0  
+# 980  input:0 1 0 0 0 1 1  output:0  
+# 990  input:1 1 0 0 0 1 1  output:1  
+# 1000  input:0 0 1 0 0 1 1  output:0  
+# 1010  input:1 0 1 0 0 1 1  output:1  
+# 1020  input:0 1 1 0 0 1 1  output:1  
+# 1030  input:1 1 1 0 0 1 1  output:1  
+# 1040  input:0 0 0 1 0 1 1  output:0  
+# 1050  input:1 0 0 1 0 1 1  output:1  
+# 1060  input:0 1 0 1 0 1 1  output:1  
+# 1070  input:1 1 0 1 0 1 1  output:1  
+# 1080  input:0 0 1 1 0 1 1  output:1  
+# 1090  input:1 0 1 1 0 1 1  output:1  
+# 1100  input:0 1 1 1 0 1 1  output:1  
+# 1110  input:1 1 1 1 0 1 1  output:1  
+# 1120  input:0 0 0 0 1 1 1  output:0  
+# 1130  input:1 0 0 0 1 1 1  output:1  
+# 1140  input:0 1 0 0 1 1 1  output:1  
+# 1150  input:1 1 0 0 1 1 1  output:1  
+# 1160  input:0 0 1 0 1 1 1  output:1  
+# 1170  input:1 0 1 0 1 1 1  output:1  
+# 1180  input:0 1 1 0 1 1 1  output:1  
+# 1190  input:1 1 1 0 1 1 1  output:1  
+# 1200  input:0 0 0 1 1 1 1  output:1  
+# 1210  input:1 0 0 1 1 1 1  output:1  
+# 1220  input:0 1 0 1 1 1 1  output:1  
+# 1230  input:1 1 0 1 1 1 1  output:1  
+# 1240  input:0 0 1 1 1 1 1  output:1  
+# 1250  input:1 0 1 1 1 1 1  output:1  
+# 1260  input:0 1 1 1 1 1 1  output:1  
+# 1270  input:1 1 1 1 1 1 1  output:1  
+# Running testbench
+# End time: 20:42:04 on Oct 16,2020, Elapsed time: 0:05:49
+# Errors: 0, Warnings: 0

@@ -1,0 +1,67 @@
+module test01(clk,clr,in,out0,out1);
+    input clk;				
+    input clr;				
+    input in;				
+    output reg[6:0] out0=0,out1=0;
+    reg[4:0] count0=0,count1=0;		
+    
+    always@(posedge clk,posedge clr) 
+        begin 
+            if(clr) 
+                begin
+                    count0<=0;
+                    count1<=0;
+                end
+            else
+                begin
+                    if(in)	
+                        begin
+                            count0<=3'b000;
+                            case(count1)
+                        	    3'b000: count1<=3'b001;
+                        	    3'b001: count1<=3'b010;
+                        	    3'b010: count1<=3'b011;
+                        	    3'b011: count1<=3'b100;
+                        	    3'b100: begin count1<=3'b000; out1=out1+1; end
+                        	    default: count1<=3'b000;
+                            endcase
+                        end
+                    else
+                        begin
+                            count1<=3'b000;
+                            case(count0)
+                        	    3'b000: count0<=3'b001;
+                        	    3'b001: count0<=3'b010;
+                        	    3'b010: count0<=3'b011;
+                        	    3'b011: count0<=3'b100;
+                        	    3'b100: begin count0<=3'b000; out0=out0+1; end
+                        	    default: count0<=3'b000;
+                            endcase
+                        end
+                end
+        end
+    always@(count0)
+        begin
+            show(count0,out0);
+        end
+    always@(count1)
+        begin
+            show(count1,out1);
+        end
+    
+    task show;
+        input integer result;
+        output[6:0] out;
+        if(result==0) out=7'b0111111; 
+		else if(result==1) out=7'b0000110;
+		else if(result==2) out=7'b1011011;
+        else if(result==3) out=7'b1001111;
+        else if(result==4) out=7'b1100110;
+        else if(result==5) out=7'b1101101;
+        else if(result==6) out=7'b1111101;
+        else if(result==7) out=7'b0000111;
+        else if(result==8) out=7'b1111111;
+        else if(result==9) out=7'b1100111;
+        else out=7'b1111111;   
+    endtask
+endmodule

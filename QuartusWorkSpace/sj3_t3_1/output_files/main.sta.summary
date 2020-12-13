@@ -1,0 +1,113 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'div_clk:dc|clk'
+Slack : -9.397
+TNS   : -392.593
+
+Type  : Slow 1200mV 85C Model Setup 'clk50'
+Slack : -3.691
+TNS   : -68.128
+
+Type  : Slow 1200mV 85C Model Setup 'button_state'
+Slack : 0.070
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'button_state'
+Slack : 0.402
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'div_clk:dc|clk'
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clk50'
+Slack : 0.657
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clk50'
+Slack : -3.000
+TNS   : -45.405
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'button_state'
+Slack : -3.000
+TNS   : -5.570
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'div_clk:dc|clk'
+Slack : -1.285
+TNS   : -74.530
+
+Type  : Slow 1200mV 0C Model Setup 'div_clk:dc|clk'
+Slack : -8.426
+TNS   : -351.394
+
+Type  : Slow 1200mV 0C Model Setup 'clk50'
+Slack : -3.316
+TNS   : -57.884
+
+Type  : Slow 1200mV 0C Model Setup 'button_state'
+Slack : 0.155
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'button_state'
+Slack : 0.353
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'div_clk:dc|clk'
+Slack : 0.354
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'clk50'
+Slack : 0.600
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clk50'
+Slack : -3.000
+TNS   : -45.405
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'button_state'
+Slack : -3.000
+TNS   : -5.570
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'div_clk:dc|clk'
+Slack : -1.285
+TNS   : -74.530
+
+Type  : Fast 1200mV 0C Model Setup 'div_clk:dc|clk'
+Slack : -3.967
+TNS   : -158.105
+
+Type  : Fast 1200mV 0C Model Setup 'clk50'
+Slack : -1.367
+TNS   : -17.497
+
+Type  : Fast 1200mV 0C Model Setup 'button_state'
+Slack : 0.545
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'div_clk:dc|clk'
+Slack : 0.179
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'button_state'
+Slack : 0.181
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'clk50'
+Slack : 0.300
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clk50'
+Slack : -3.000
+TNS   : -38.009
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'button_state'
+Slack : -3.000
+TNS   : -5.122
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'div_clk:dc|clk'
+Slack : -1.000
+TNS   : -58.000
+
+------------------------------------------------------------

@@ -1,0 +1,39 @@
+`timescale 1 ps/ 1 ps
+module main_vlg_tst();
+    // 初始化变量
+    reg [7:0] in;      // 8路输入，高电平1为有效电平
+    wire [6:0]  out1;   // 7路输出，对应第一个七段管十进制数的显示（个位）
+    wire [6:0]  out2;   // 7路输出，对应第二个七段管十进制数的显示（十位）
+    wire [6:0]  out3;   // 7路输出，对应第三个七段管十进制数的显示（百位）
+    
+    integer i;
+    main i1 (  
+        .in(in),
+        .out1(out1),
+        .out2(out2),
+        .out3(out3)
+    );
+    initial
+        begin
+            // i对应二进制 00000000~11111111（8位），用于遍历in所有情况
+            for(i=0;i<256;i=i+1)
+                begin
+                    // 十进制转二进制
+                    in[0]=(i/1)%2;
+                    in[1]=(i/2)%2;
+                    in[2]=(i/4)%2;
+                    in[3]=(i/8)%2;
+                    in[4]=(i/16)%2;
+                    in[5]=(i/32)%2;
+                    in[6]=(i/64)%2;
+                    in[7]=(i/128)%2;
+                    #10;    //延时
+                end
+            $display("begin");
+        end                                                      
+    
+    initial
+        // 输出显示 in,out3,out2,out1（二进制）
+        $monitor($realtime,,,"dec:%d    bit:%b %b %b",in,out3,out2,out1);  
+    
+endmodule

@@ -1,0 +1,58 @@
+
+`timescale 1 ps/ 1 ps
+module main_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg clk=0;
+reg clr;
+reg in;
+// wires                                               
+wire [6:0]  out0;
+wire [6:0]  out1;
+wire [6:0]  count0;
+wire [6:0]  count1;
+
+// assign statements (if any) 
+main i1 (
+// port map - connection between master ports and signals/registers   
+	.clk(clk),
+	.clr(clr),
+	.in(in),
+	.out0(out0),
+	.out1(out1),
+	.count0(count0),
+	.count1(count1)
+);
+always
+    begin
+       # 10;
+       clk=~clk;
+    end
+initial                                                
+	begin
+        in=1;
+        # 40;
+        in=0;
+        # 50;
+        in=1;
+        # 60;
+        in=0;
+        in=1;
+        # 70;
+        in=0;
+        # 80;
+        in=1;
+        # 90;
+        in=0;
+        # 100;
+        clr=1;
+        # 30;
+        clr=0;
+		$display("Running testbench");                       
+	end  
+initial
+    $monitor($realtime,,,"0:%d  1:%d",count0,count1);	
+endmodule
+

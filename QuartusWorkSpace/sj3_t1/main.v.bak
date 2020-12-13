@@ -1,0 +1,58 @@
+module main(clk50,clk1,sw,out0,out1,out2,out3,out4,out5,out6,out7);
+	input clk50; 			// clk50：输入50MHz信号；reset：复位信号 
+    input sw;				//翻转信号 1：左移  0：右移
+    output wire clk1;	 // clk1：新产生的1Hz信号 
+    output reg[6:0] out0=7'b1110110;  //H
+    output reg[6:0] out1=7'b1111001;  //E
+    output reg[6:0] out2=7'b0111000;  //L
+    output reg[6:0] out3=7'b0111000;  //L
+    output reg[6:0] out4=7'b0111111;  //O
+    output reg[6:0] out5=7'b0000000;  //不显示
+    output reg[6:0] out6=7'b0000000;  //不显示
+    output reg[6:0] out7=7'b0000000;  //不显示
+    
+    //模块调用
+    div_clk dc(clk50,clk1);  //产生clk1（即频率为1Hz的数字信号）			 
+    always@(posedge clk1) 
+        begin 
+            if(sw)
+                begin
+                    out0<=out1;
+                    out1<=out2;
+                    out2<=out3;
+                    out3<=out4;
+                    out4<=out5;
+                    out5<=out6;
+                    out6<=out7;
+                    out7<=out0;
+                end
+            else
+                begin
+                    out7<=out6;
+                    out6<=out5;
+                    out5<=out4;
+                    out4<=out3;
+                    out3<=out2;
+                    out2<=out1;
+                    out1<=out0;
+                    out0<=out7;
+                end
+        end 
+
+endmodule
+
+// 分频电路，将50MHz转化成1Hz
+module div_clk(clk50,clk); 
+    input clk50;		// clk50：输入50MHz信号；reset：复位信号 
+    output reg clk=1;	 // clk1：新产生的1Hz信号 
+    integer i=0;			 
+    always@(posedge clk50) 
+        begin 
+            if(i==25000000) 
+                begin 
+                    i=0; 
+                    clk=~clk;
+                end 
+            else i=i+1; 
+        end 
+endmodule 

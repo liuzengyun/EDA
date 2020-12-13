@@ -1,0 +1,76 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/simulation/modelsim
+vclk50mto1
+Z1 !s110 1604220952
+!i10b 1
+!s100 ?Db3JjJFL^R[S:CD_5^jC1
+I[n5UbfTLYPcMf`mI]95z71
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1604220435
+Z4 8C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/main.v
+Z5 FC:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/main.v
+L0 116
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1604220952.000000
+Z8 !s107 C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/main.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2|C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/main.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work +incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2
+Z12 tCvgOpt 0
+vmain
+R1
+!i10b 1
+!s100 Tn5bG9PBVTb>0]ih2Y9X`1
+IJMU`HdEahSM[@_FTE2D2S1
+R2
+R0
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vmain_vlg_tst
+R1
+!i10b 1
+!s100 mZQDIHFJBHXjaX2fCYbb21
+IYZ0>?LOE;?F00g]kNdSf61
+R2
+R0
+w1604220917
+8C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/simulation/modelsim/main.vt
+FC:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/simulation/modelsim/main.vt
+L0 2
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/simulation/modelsim/main.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/simulation/modelsim|C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/simulation/modelsim/main.vt|
+!i113 1
+R10
+!s92 -vlog01compat -work work +incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t2/simulation/modelsim
+R12

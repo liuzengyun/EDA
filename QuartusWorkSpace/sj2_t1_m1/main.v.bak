@@ -1,0 +1,7 @@
+module test01(a,b,c,d,e,f,g,out);	// 模块定义
+	input a,b,c,d,e,f,g;	// 输入，1：同意，0：不同意
+	output out;		// 输出，1：表决通过，0：表决不通过
+	wire[2:0] sum;	// 内部变量sum，用于传递计算和，和的范围为0-7，所以设定为3位
+	assign sum=a+b+c+d+e+f+g;
+	assign out=sum[2]?1:0;
+endmodule

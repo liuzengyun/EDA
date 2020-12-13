@@ -1,0 +1,53 @@
+`timescale 1 ps/ 1 ps
+module main_vlg_tst();
+// constants                                           
+// general purpose registers
+reg eachvec;
+// test vector input registers
+reg clk50;
+reg key;
+// wires                                               
+wire clk1;
+wire [6:0]  out0;
+wire [6:0]  out1;
+wire [6:0]  out2;
+wire [6:0]  out3;
+wire [6:0]  out4;
+wire [6:0]  out5;
+
+
+// assign statements (if any)                          
+main i1 (
+// port map - connection between master ports and signals/registers   
+	.clk1(clk1),
+	.clk50(clk50),
+	.key(key),
+	.out0(out0),
+	.out1(out1),
+	.out2(out2),
+	.out3(out3),
+	.out4(out4),
+	.out5(out5)
+);
+
+
+    // 产生时钟信号
+    // 一个时钟周期为20ns
+    parameter DELAY=20;	
+    // 半个周期翻转一次
+    always #(DELAY/2) clk50=~clk50;
+	 
+	 
+	 
+initial                                                
+begin                                                  
+// 初始化信号
+            clk50=0;	
+            key=0;                                            
+            $display("Running testbench");                                            
+$display("Running testbench");                       
+end                                                    
+initial
+       $monitor($realtime,,,"%d %d : %d %d : %d %d",out5,out4,out3,out2,out1,out0);                                                  
+endmodule
+

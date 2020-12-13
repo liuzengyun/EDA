@@ -1,0 +1,76 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim
+vdivclk
+Z1 !s110 1605926192
+!i10b 1
+!s100 g8J9J`LA=nMb?KkeHz[Az2
+I@>1_ha3CiC[WjCAQa@eGm3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z3 w1605926180
+Z4 8C:/Users/lance/Desktop/wsp (1)/lab2/lab2.v
+Z5 FC:/Users/lance/Desktop/wsp (1)/lab2/lab2.v
+L0 195
+Z6 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z7 !s108 1605926192.000000
+Z8 !s107 C:/Users/lance/Desktop/wsp (1)/lab2/lab2.v|
+Z9 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/wsp (1)/lab2|C:/Users/lance/Desktop/wsp (1)/lab2/lab2.v|
+!i113 1
+Z10 o-vlog01compat -work work
+Z11 !s92 -vlog01compat -work work {+incdir+C:/Users/lance/Desktop/wsp (1)/lab2}
+Z12 tCvgOpt 0
+vlab2
+R1
+!i10b 1
+!s100 lo;GLTkdPWLbh>R:<:BI@3
+I2PeZSaC2hV0TG7e4BXPa[1
+R2
+R0
+R3
+R4
+R5
+L0 1
+R6
+r1
+!s85 0
+31
+R7
+R8
+R9
+!i113 1
+R10
+R11
+R12
+vlab2_vlg_tst
+R1
+!i10b 1
+!s100 `O<1_PX4bh`KJGBZJX8eC2
+Iz>V=NQ;>MT_kBeIoLT3<M1
+R2
+R0
+w1605925752
+8C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim/lab2.vt
+FC:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim/lab2.vt
+L0 4
+R6
+r1
+!s85 0
+31
+R7
+!s107 C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim/lab2.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim|C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim/lab2.vt|
+!i113 1
+R10
+!s92 -vlog01compat -work work {+incdir+C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim}
+R12

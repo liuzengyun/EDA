@@ -1,0 +1,59 @@
+`timescale 1 ms/ 1 ms
+module test03_vlg_tst();
+​
+    reg Badd;
+    reg Bstate;
+    reg clk50;
+    reg key;
+​
+    wire clk1;
+    wire [6:0]  out0;
+    wire [6:0]  out1;
+    wire [6:0]  out2;
+    wire [6:0]  out3;
+    wire [6:0]  out4;
+    wire [6:0]  out5;
+​
+    // 产生时钟信号
+    always #5 clk50=~clk50;
+​
+    test03 i1 ( 
+        .Badd(Badd),
+        .Bstate(Bstate),
+        .clk1(clk1),
+        .clk50(clk50),
+        .key(key),
+        .out0(out0),
+        .out1(out1),
+        .out2(out2),
+        .out3(out3),
+        .out4(out4),
+        .out5(out5)
+    );
+​
+    initial                                                
+        begin  
+            // 初始化变量
+            key=0; clk50=1; Badd=0; Bstate=0;
+            // 模拟产生输入信号
+            #100
+            Bstate=1; #5 Bstate=0; #5
+            Bstate=1; #5 Bstate=0; #5
+            Badd=1; #5 Badd=0; #5 
+            Badd=1; #5 Badd=0; #5 
+            Badd=1; #5 Badd=0; #5 
+​
+            Bstate=1; #5 Bstate=0; #5
+            Badd=1; #5 Badd=0; #5 
+            Badd=1; #5 Badd=0; #5 
+​
+            Bstate=1; #5 Bstate=0; #5
+            Badd=1; #5 Badd=0; #5 
+            Badd=1; #5 Badd=0; #5
+            #200 $stop;
+        end                                                    
+​
+    initial
+        $monitor($realtime,,,"%d %d : %d %d : %d %d",out5,out4,out3,out2,out1,out0);
+​
+endmodule

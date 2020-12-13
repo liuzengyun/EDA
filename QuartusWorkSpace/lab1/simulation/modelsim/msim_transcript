@@ -1,0 +1,61 @@
+# Reading D:/modelSim/modelsim_ase/tcl/vsim/pref.tcl
+# do lab1_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/modelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lance/Desktop/wsp\ (1)/lab1 {C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 21:53:54 on Nov 18,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lance/Desktop/wsp (1)/lab1" C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v 
+# -- Compiling module lab1
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(37): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(38): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(39): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(40): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(41): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(56): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(57): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(58): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(59): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(60): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(61): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(62): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(63): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(78): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(79): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(80): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(81): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(82): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(83): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(84): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(85): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(102): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(103): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(104): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(105): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(106): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(107): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(108): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(109): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(122): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(123): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(124): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(125): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(126): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(127): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(128): Illegal task output argument.
+# ** Error: C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v(129): Illegal task output argument.
+# End time: 21:53:54 on Nov 18,2020, Elapsed time: 0:00:00
+# Errors: 37, Warnings: 0
+# ** Error: D:/modelSim/modelsim_ase/win32aloem/vlog failed.
+# Error in macro ./lab1_run_msim_rtl_verilog.do line 8
+# D:/modelSim/modelsim_ase/win32aloem/vlog failed.
+#     while executing
+# "vlog -vlog01compat -work work +incdir+C:/Users/lance/Desktop/wsp\ (1)/lab1 {C:/Users/lance/Desktop/wsp (1)/lab1/lab1.v}"

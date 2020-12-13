@@ -1,0 +1,110 @@
+module main(clk50,key,clk1,out5,out4,out3,out2,out1,out0);
+    input  clk50,key;			// clk50：输入50MHz信号；key：异步复位信号
+    output clk1;				// clk1：新产生的1Hz信号
+    output reg [6:0] out5;		// 输出，时_十位
+    output reg [6:0] out4;		// 输出，时_个位
+    output reg [6:0] out3; 		// 输出，分_十位
+    output reg [6:0] out2;		// 输出，分_个位
+    output reg [6:0] out1;		// 输出，秒_十位
+    output reg [6:0] out0;		// 输出，秒_个位
+    reg [6:0] hour=0;			// 计数器_时（0-23）
+    reg [6:0] minutes=0;		// 计数器_分（0-59）
+    reg [6:0] seconds=0;		// 计数器_秒（0-59）
+    
+    div_clk dc(clk50,clk1);		// 模块调用，50MHz -> 1Hz
+   
+    // clk1，上升沿触发；key，异步信号，高电平有效
+    always@(posedge clk1,posedge key)
+        begin 
+            // 异步复位
+            if(key)		
+                begin
+                    hour=0; 
+                    minutes=0; 
+                    seconds=0;
+                    // 直接输出，方便观察检验结果
+                    // 若连接7段管，输出信号用任务 dec_out 转换即可
+                    // dec_out(输入:十进制数 , 输出:7位二进制数值，对应7段管显示)
+                    // 例：dec_out(hour/10,out5);
+                    out5=hour/10;
+    				out4=hour%10;  
+    				out3=minutes/10;  
+    				out2=minutes%10;  
+    				out1=seconds/10;  
+    				out0=seconds%10;  
+                end
+            // 计数
+            else
+                begin
+                    if(seconds<59)  seconds=seconds+1;
+                    else  
+                        begin
+                            if(seconds==59) 
+                                begin
+                                    seconds=0;
+                                    if(minutes<59)  minutes=minutes+1;
+                                    else
+                                        begin
+                                            if(minutes==59)
+                                                begin
+                                                    minutes=0;
+                                                    if(hour<23) hour=hour+1;
+                                                    else
+                                                        begin
+                                                            if(hour==23) hour=0;
+                                                        end 
+                                                end
+                                        end
+                                end
+                          end
+                    // 直接输出，方便观察检验结果
+                    // 若连接7段管，输出信号用任务 dec_out 转换即可
+                    // dec_out(输入:十进制数 , 输出:7位二进制数值，对应7段管显示)
+                    // 例：dec_out(hour/10,out5);
+                    out5=hour/10;
+    				out4=hour%10;  
+    				out3=minutes/10;  
+    				out2=minutes%10;  
+    				out1=seconds/10;  
+    				out0=seconds%10;
+                end
+        end
+    
+    // 七段管十进制数显示：将十进制数转换为七段管显示所对应的电平信号
+    task dec_out;
+        input integer decc;					// 输入，十进制数
+        output reg[6:0] outt;				// 输出，7位二进制数值
+        if(decc==0) 	 outt=7'b1000000;	// 七段管显示0
+        else if(decc==1) outt=7'b1111001;	// 七段管显示1
+        else if(decc==2) outt=7'b0100100;	// 七段管显示2
+        else if(decc==3) outt=7'b0110000;	// 七段管显示3
+        else if(decc==4) outt=7'b0011001;	// 七段管显示4
+        else if(decc==5) outt=7'b0010010;	// 七段管显示5
+        else if(decc==6) outt=7'b0000010;	// 七段管显示6
+        else if(decc==7) outt=7'b1111000;	// 七段管显示7
+        else if(decc==8) outt=7'b0000000;	// 七段管显示8
+        else if(decc==9) outt=7'b0011000;	// 七段管显示9
+        else 			 outt=7'b1111111;	// 七段管不显示
+    endtask
+    
+endmodule
+
+// **分频电路模块 50MHz -> 1Hz**
+// 50MHz = 2*10^-8 s = 20ns
+// 1Hz = 1s
+// 1s/20ns = 5*10^7，即1Hz信号的一个周期包含50MHz信号的5*10^7个周期
+// (5*10^7)/2 = 25000000，产生1Hz信号时，每过25000000个周期翻转一次
+module div_clk(clk50,clk1); 
+    input clk50;				// clk50：输入的50MHz信号
+    output reg clk1=1;			// clk1： 产生的1Hz信号，赋初始值为1
+    integer i=0;				// 50MHz频率下，周期计数器 
+    always@(posedge clk50) 		// clk50上升沿触发
+        begin 
+            if(i==250)		// 每过25000000个周期
+                begin 
+                    i=0; 			
+                    clk1=~clk1;	// clk1翻转
+                end 
+            else i=i+1; 
+        end 
+endmodule 

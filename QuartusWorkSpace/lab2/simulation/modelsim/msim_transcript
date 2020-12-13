@@ -1,0 +1,53 @@
+# Reading D:/modelSim/modelsim_ase/tcl/vsim/pref.tcl
+# do lab2_run_msim_rtl_verilog.do
+# if {[file exists rtl_work]} {
+# 	vdel -lib rtl_work -all
+# }
+# vlib rtl_work
+# vmap work rtl_work
+# Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
+# vmap work rtl_work 
+# Copying D:/modelSim/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
+# Modifying modelsim.ini
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lance/Desktop/wsp\ (1)/lab2 {C:/Users/lance/Desktop/wsp (1)/lab2/lab2.v}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:36:32 on Nov 21,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lance/Desktop/wsp (1)/lab2" C:/Users/lance/Desktop/wsp (1)/lab2/lab2.v 
+# -- Compiling module lab2
+# -- Compiling module divclk
+# 
+# Top level modules:
+# 	lab2
+# End time: 10:36:32 on Nov 21,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vlog -vlog01compat -work work +incdir+C:/Users/lance/Desktop/wsp\ (1)/lab2/simulation/modelsim {C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim/lab2.vt}
+# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
+# Start time: 10:36:32 on Nov 21,2020
+# vlog -reportprogress 300 -vlog01compat -work work "+incdir+C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim" C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim/lab2.vt 
+# -- Compiling module lab2_vlg_tst
+# 
+# Top level modules:
+# 	lab2_vlg_tst
+# End time: 10:36:32 on Nov 21,2020, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# 
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs="+acc"  lab2_vlg_tst
+# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L cycloneive_ver -L rtl_work -L work -voptargs=""+acc"" lab2_vlg_tst 
+# Start time: 10:36:32 on Nov 21,2020
+# Loading work.lab2_vlg_tst
+# Loading work.lab2
+# Loading work.divclk
+# 
+# add wave *
+# view structure
+# .main_pane.structure.interior.cs.body.struct
+# view signals
+# .main_pane.objects.interior.cs.body.tree
+# run -all
+# Running testbench
+# Break key hit
+# Break in Module lab2_vlg_tst at C:/Users/lance/Desktop/wsp (1)/lab2/simulation/modelsim/lab2.vt line 40
+# End time: 11:23:38 on Nov 21,2020, Elapsed time: 0:47:06
+# Errors: 0, Warnings: 0

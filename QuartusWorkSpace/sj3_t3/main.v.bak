@@ -1,0 +1,158 @@
+module main(clk50,key,clk1,out5,out4,out3,out2,out1,out0,flagclk,up,down);
+    input  clk50,key;	
+    output clk1;			
+    output reg [6:0] out5;	
+    output reg [6:0] out4;	
+    output reg [6:0] out3; 	
+    output reg [6:0] out2;	
+    output reg [6:0] out1;	
+    output reg [6:0] out0;	
+    reg [6:0] hour=0;		
+    reg [6:0] minutes=0;	
+    reg [6:0] seconds=0;
+    reg [2:0] flag=0;
+    input  down,up,flagclk;
+    
+    clk50mto1 test(clk50,clk1);
+   
+    // clk1，上升沿触发；key，异步信号，高电平有效
+    always@(posedge clk1,posedge key)
+        begin
+            if(key)		
+                begin
+                    hour=0; 
+                    minutes=0; 
+                    seconds=0;
+                    out5=hour/10;
+    				out4=hour%10;  
+    				out3=minutes/10;  
+    				out2=minutes%10;  
+    				out1=seconds/10;  
+    				out0=seconds%10;  
+                end
+            // 计数
+            else
+                begin
+                    if(seconds<59)  seconds=seconds+1;
+                    else  
+                        begin
+                            if(seconds==59) 
+                                begin
+                                    seconds=0;
+                                    if(minutes<59)  minutes=minutes+1;
+                                    else
+                                        begin
+                                            if(minutes==59)
+                                                begin
+                                                    minutes=0;
+                                                    if(hour<23) hour=hour+1;
+                                                    else
+                                                        begin
+                                                            if(hour==23) hour=0;
+                                                        end 
+                                                end
+                                        end
+                                end
+                          end
+                    
+                    out5=hour/10;
+    				out4=hour%10;  
+    				out3=minutes/10;  
+    				out2=minutes%10;  
+    				out1=seconds/10;  
+    				out0=seconds%10;
+                end
+        end
+    
+    always@(posedge flagclk)
+        begin
+            flag=(falg+1)%3;
+        end
+    always@(posedge up)
+        begin
+            if(flag==1)
+                begin
+                    if(hour<23) hour=hour+1;
+                    else hour=0;
+                end
+            if(flag==2)
+                begin
+                    if(minutes<59) minutes=minutes+1;
+                    else minutes=0;
+                end
+            if(flag==3)
+                begin
+                    if(seconds<59) seconds=seconds+1;
+                    else seconds=0;
+                end
+            out5=hour/10;
+            out4=hour%10;  
+            out3=minutes/10;  
+            out2=minutes%10;  
+            out1=seconds/10;  
+            out0=seconds%10;
+        end
+    always@(posedge up)
+        begin
+            if(flag==1)
+                begin
+                    if(hour>0) hour=hour-1;
+                    else hour=23;
+                end
+            if(flag==2)
+                begin
+                    if(minutes>0) minutes=minutes-1;
+                    else minutes=59;
+                end
+            if(flag==3)
+                begin
+                    if(seconds>0) seconds=seconds-1;
+                    else seconds=59;
+                end
+            out5=hour/10;
+            out4=hour%10;  
+            out3=minutes/10;  
+            out2=minutes%10;  
+            out1=seconds/10;  
+            out0=seconds%10;
+        end
+    
+    
+    
+    
+    task dec_out;
+        input integer decc;					// 输入，十进制数
+        output reg[6:0] outt;				// 输出，7位二进制数值
+        if(decc==0) 	 outt=7'b1000000;	// 七段管显示0
+        else if(decc==1) outt=7'b1111001;	// 七段管显示1
+        else if(decc==2) outt=7'b0100100;	// 七段管显示2
+        else if(decc==3) outt=7'b0110000;	// 七段管显示3
+        else if(decc==4) outt=7'b0011001;	// 七段管显示4
+        else if(decc==5) outt=7'b0010010;	// 七段管显示5
+        else if(decc==6) outt=7'b0000010;	// 七段管显示6
+        else if(decc==7) outt=7'b1111000;	// 七段管显示7
+        else if(decc==8) outt=7'b0000000;	// 七段管显示8
+        else if(decc==9) outt=7'b0011000;	// 七段管显示9
+        else 			 outt=7'b1111111;	// 七段管不显示
+    endtask
+    
+endmodule
+
+
+module clk50to1(clk50,clk1);
+    input wire clk1;
+    output reg clk1=1;
+    integer i=0;
+    always@(posedge clk50)
+        begin
+            if(i=25000000)
+                begin
+                   i=0;
+                    clk1=~clk1;
+                end
+            else
+                begin
+                   i=i+1; 
+                end
+        end
+endmodule

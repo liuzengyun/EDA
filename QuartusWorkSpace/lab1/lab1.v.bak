@@ -1,0 +1,120 @@
+module lab1(
+input clk,
+input[17:0] sw,
+input[3:0] key,
+output[17:0] ledr,
+output[8:0] ledg,
+output[6:0] hex0,
+output[6:0] hex1,
+output[6:0] hex2,
+output[6:0] hex3,
+output[6:0] hex4,
+output[6:0] hex5,
+output[6:0] hex6,
+output[6:0] hex7
+);
+reg[15:0] sw0;
+divclk d0(clk,clk1);
+assign {ledr,ledg}={27{clk1}};
+always@(*)
+begin //输入超过BCD码表示范围，将值锁定在9
+      //将sw【15:0】对应的4个BCD进行处理
+if(sw[3:0]>9) sw0[3:0]=9;
+else sw0[3:0]=sw[3:0];
+
+if(sw[7:4]>9) sw0[7:4]=9;
+else sw0[7:4]=sw[7:4];
+
+if(sw[11:8]>9) sw0[11:8]=9;
+else sw0[11:8]=sw[11:8];
+
+if(sw[15:12]>9) sw0[15:12]=9;
+else sw0[15:12]=sw[15:12];
+
+end
+
+reg[4:0] s7,s6,s5;//对应hex7、hex6，hex5
+reg[4:0]s4,s3,s2,s1,s0;//万、千、。。。。个位，显示到hex4、。。。hex0上
+always@(*)
+begin  //将sw15-sw0作为二进输入，七段管输出十进制值
+s7=16;
+s6=16;
+s5=16;//show译码，超过F，不显示
+s0=sw[15:0]%10;
+s1=sw[15:0]/10%10;
+s2=sw[15:0]/100%10;
+s3=sw[15:0]/1000%10;
+s4=sw[15:0]/10000;
+end
+
+reg[4:0] m7,m6,m5,m4,m3,m2,m1,m0;//*操作，对应的7个hex的显示
+reg[7:0] sum;
+
+always@(*)
+begin
+m7=sw0[15:12];
+m6=sw0[11:8];
+m5=sw0[7:4];
+m4=sw0[3:0];
+sum=sw0[15:12]*10+sw0[11:8]+sw0[7:4]*10+sw0[3:0];
+m3=16;
+m2=sum/100;
+m1=sum/10%10;
+m0=sum%10;
+end
+
+reg[4:0] j7,j6,j5,j4,j3,j2,j1,j0;//*操作，对应的7个hex的显示
+reg[6:0] sub2,sub1,sub0;
+
+always@(*)//减法
+begin
+j7=sw0[15:12];
+j6=sw0[11:8];
+j5=sw0[7:4];
+j4=sw0[3:0];
+j3=16;
+sub1=sw0[15:12]*10+sw0[11:8];
+sub0=sw0[7:4]*10+sw0[3:0];
+if(sub1>=sub0) //j2显示符号位
+   begin sub2=sub1-sub0;j2=16; end
+else 
+   begin sub2=sub0-sub1; j2=17;end
+//加法结果最大值99，只需要两个hex就可以
+j1=sub2/10;
+j0=sum%10;
+end
+
+reg[14:0] mul;
+reg[4:0] mul7,mul6,mul5,mul4,mul3,mul2,mul1,mul0;
+always@(*)
+begin
+ mul=(sw0[15:12]*10+sw0[11:8])*(sw0[7:4]*10+sw0[3:0]);
+mul7=sw0[15:12];
+mul6=sw0[11:8];
+mul5=sw0[7:4];
+mul4=sw0[3:0];
+mul3=mul/1000;
+mul2=mul/100%10;
+mul1=mul/10%10;
+mul0=mul%10;
+end
+
+reg[4:0] in0,in1,in2,in3,in4,in5,in6,in7;
+always@(*)//显数、加、减、乘
+begin
+ case(sw[17:16])
+   2'b00:begin in0=s0;in1=s1;in2=s2;in3=s3;in4=s4;in5=s5;in6=s6;in7=s7;  end
+	2'b01:begin in0=m0;in1=m1;in2=m2;in3=m3;in4=m4;in5=m5;in6=m6;in7=m7;  end
+	2'b11:begin in0=j0;in1=j1;in2=j2;in3=j3;in4=j4;in5=j5;in6=j6;in7=j7;  end
+	2'b10:begin in0=mul0;in1=mul1;in2=mul2;in3=mul3;in4=mul4;in5=mul5;in6=mul6;in7=mul7; end
+	default: begin in0=5'bx;in1=5'bx;in2=5'bx;in3=5'bx;in4=5'bx;in5=5'bx;in6=5'bx;in7=5'bx;  end
+ endcase
+end
+
+show1 sh0(in0,hex0),sh1(in1,hex1),
+      sh2(in2,hex2),sh3(in3,hex3),
+		sh4(in4,hex4),sh5(in5,hex5),
+		sh6(in6,hex6),sh7(in7,hex7);
+endmodule
+
+

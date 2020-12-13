@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/simulation/modelsim
+vmain
+Z1 !s110 1604051989
+!i10b 1
+!s100 fVeMH>Q308903?e=1X[2e0
+IDzSHQIZeFOmbzTd5eLO701
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1604048776
+8C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/main.v
+FC:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/main.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+!s108 1604051988.000000
+!s107 C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/main.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1|C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/main.v|
+!i113 1
+Z4 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1
+Z5 tCvgOpt 0
+vmain_vlg_tst
+R1
+!i10b 1
+!s100 <ZnaCOST<6RmAdcE5`dc12
+I6jd]Fk^=BAgUN:z_Ui^X42
+R2
+R0
+w1604051967
+8C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/simulation/modelsim/main.vt
+FC:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/simulation/modelsim/main.vt
+L0 3
+R3
+r1
+!s85 0
+31
+!s108 1604051989.000000
+!s107 C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/simulation/modelsim/main.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/simulation/modelsim|C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/simulation/modelsim/main.vt|
+!i113 1
+R4
+!s92 -vlog01compat -work work +incdir+C:/Users/lance/Desktop/eda/QuartusWorkSpace/sj4_t1/simulation/modelsim
+R5

@@ -1,0 +1,78 @@
+module lab2(sw,hex0,hex1,hex2,hex3,hex4,hex5,hex6,hex7,key,ledr,ledg,clk_50);
+    input[17:0] sw;
+    input[3:0] key;
+    output[6:0] hex0,hex1,hex2,hex3,hex4,hex5,hex6,hex7;
+    output[17:0] ledr;
+    output[8:0] ledg;
+    reg[4:0] h7,h6,h5,h4,h3,h2,h1,h0;
+    reg[7:0] hour=0,minute=0,second=0,nhour=0,nminute=0,nsecond=0;
+    reg[17:0] sw0;
+    
+    divclk(clk_50,clk1);
+    always@(posedge clk1,negedge key[3],negedge key[2],negedge key[1],negedge key[0],sw[17],sw[16])
+        begin
+            if(key==4'b0000&&sw[17:16]==2'b00)
+                begin
+                    //下面是正常的计时
+                    if(second==59)
+                        begin
+                            if(minute==59)
+                                begin
+                                    if(hour==23) hour=0;
+                                    else hour=hour+1;
+                                end
+                            else minute=minute+1;
+                        end
+                    else
+                        begin
+                            second=second+1;
+                        end
+                    show(hour/10,hex0);
+                    show(hour%10,hex1);
+                    show(minute/10,hex2);
+                    show(minute%10,hex3);
+                    show(second/10,hex4);
+                    show(second%10,hex5);
+                    show(11,hex6);
+                    show(10,hex7);
+                    //以上是正常的计时
+                end
+           
+            
+            
+        end
+
+
+
+    task show;
+        input reg[3:0] result;			
+        output reg[6:0] out;				
+        if(result==0) 	 out=7'b1000000;	// 显示0
+        else if(result==1) out=7'b1111001;	// 显示1
+        else if(result==2) out=7'b0100100;	// 显示2
+        else if(result==3) out=7'b0110000;	// 显示3
+        else if(result==4) out=7'b0011001;	// 显示4
+        else if(result==5) out=7'b0010010;	// 显示5
+        else if(result==6) out=7'b0000010;	// 显示6
+        else if(result==7) out=7'b1111000;	// 显示7
+        else if(result==8) out=7'b0000000;	// 显示8
+        else if(result==9) out=7'b0011000;	// 显示9
+        else if(result==10)out=7'b0111111;	// 显示-
+        else 			 out=7'b1111111;	// 不显示
+    endtask
+endmodule
+
+module divclk(clk_50,clk1); 
+    input clk_50;		// clk50：输入50MHz信号；reset：复位信号 
+    output reg clk1=1;	 // clk1：新产生的1Hz信号 
+    integer i=0;			 
+    always@(posedge clk_50) 
+        begin 
+            if(i==25000000) 
+                begin 
+                    i=0; 
+                    clk1=~clk1;
+                end 
+            else i=i+1; 
+        end 
+endmodule 

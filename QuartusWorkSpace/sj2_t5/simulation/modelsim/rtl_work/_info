@@ -1,0 +1,54 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/simulation/modelsim
+vmain
+Z1 !s110 1602943330
+!i10b 1
+!s100 MF;5i;:UhM=@HG?=<0jdE2
+IHl:hZn_a:<D:Zf]DS6`:E3
+Z2 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1602942303
+8C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/main.v
+FC:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/main.v
+L0 1
+Z3 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z4 !s108 1602943330.000000
+!s107 C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/main.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5|C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/main.v|
+!i113 1
+Z5 o-vlog01compat -work work
+!s92 -vlog01compat -work work +incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5
+Z6 tCvgOpt 0
+vmain_vlg_tst
+R1
+!i10b 1
+!s100 H1CP<=56WVZ1[h^CWE=G51
+I7>@B0i=nBIO12jIdNkZEF1
+R2
+R0
+w1602943302
+8C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/simulation/modelsim/main.vt
+FC:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/simulation/modelsim/main.vt
+L0 2
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/simulation/modelsim/main.vt|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/simulation/modelsim|C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/simulation/modelsim/main.vt|
+!i113 1
+R5
+!s92 -vlog01compat -work work +incdir+C:/Users/lance/Desktop/QuartusWorkSpace/sj2_t5/simulation/modelsim
+R6
